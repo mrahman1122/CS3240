@@ -37,6 +37,8 @@ class TestGraphFunctions(unittest.TestCase):
 
     def test_bfs1(self):
         print (graph_functions.bfs_search(self.myGraph, 'Node4', 'Node1')).__str__()
+        print (graph_functions.bfs_search(self.myGraph, 'Node4', 'Node4')).__str__()
+        print (graph_functions.bfs_search(self.myGraph, 'Node4', 'Node2')).__str__()
 
 if __name__ == '__main__':
     unittest.main()

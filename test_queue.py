@@ -49,5 +49,11 @@ class TestQueueFunctions(unittest.TestCase):
         #Q7
         self.assertEqual(self.myQueue.__len__(), 3)
 
+    def test_contain(self):
+        #Q8
+        self.assertFalse(self.myQueue.__contains__('d'))
+        self.assertTrue(self.myQueue.__contains__('a'))
+
+
 if __name__ == '__main__':
     unittest.main()
