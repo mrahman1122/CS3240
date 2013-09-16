@@ -26,8 +26,11 @@ def bfs_search(grph, start, target):
     else:
         path = my_adts.Queue()
         path.add(start)
-        visit = my_adts.Queue()
-        visit.add(start)
+
+        visit = list()
+        visit.append(start)
+
+        counter = 0
 
         if((grph.numnodes() == 1) or (grph.numnodes() == 0)):
             return False
@@ -35,8 +38,11 @@ def bfs_search(grph, start, target):
             return path
 
         while(path.__len__() < grph.numnodes()):
-            currentNode = visit.remove()
+
+            currentNode = visit[counter]
+
             for node in grph.getadjlist(currentNode):
+
                 if (path.__contains__(node)):
                     continue
                 else:
@@ -45,5 +51,8 @@ def bfs_search(grph, start, target):
                         return path
 
                     for item in grph.getadjlist(node):
-                        if(not(visit.__contains__(item))):
-                            visit.add(item)
+                        if((not(item in visit)) and not(path.__contains__(item))):
+                            visit.append(item)
+
+            counter + 1
+
